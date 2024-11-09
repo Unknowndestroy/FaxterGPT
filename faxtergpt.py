@@ -10,20 +10,20 @@ import os
 import subprocess
 import time
 
-# Ekranı temizle
+
 subprocess.call("cls", shell=True)
 
-# ANSI renk kodları
+
 colors = [
-    "\033[38;5;196m",  # Kırmızı
-    "\033[38;5;202m",  # Turuncu
-    "\033[38;5;226m",  # Sarı
-    "\033[38;5;82m",   # Yeşil
-    "\033[38;5;45m",   # Mor
-    "\033[38;5;34m",   # Mavi
-    "\033[38;5;51m"    # Cyan
+    "\033[38;5;196m",  
+    "\033[38;5;202m",  
+    "\033[38;5;226m",  
+    "\033[38;5;82m",   
+    "\033[38;5;45m",   
+    "\033[38;5;34m",   
+    "\033[38;5;51m"   
 ]
-reset_color = "\033[0m"  # Renk sıfırlama
+reset_color = "\033[0m"  
 
 # ASCII sanatı
 ascii_art = [
@@ -35,55 +35,55 @@ ascii_art = [
     "                                /____/       "
 ]
 
-# Ekranın genişliği
+
 screen_width = 80
 
-# Her satırı yavaşça renkli yazdır
+
 for index, line in enumerate(ascii_art):
-    # Renk seçimi için renk dizisinden bir renk al
+
     color = colors[index % len(colors)]
-    # Satırı ortala
+  
     centered_line = line.center(screen_width)
-    print(" ", end='')  # Boşluğu ekle
+    print(" ", end='')  
     for char in centered_line:
         print(color + char, end='', flush=True)
-        time.sleep(0.02)  # Her karakter için 0.05 saniye bekle
-    print(reset_color)  # Satırın sonunda rengi sıfırla
+        time.sleep(0.02) 
+    print(reset_color)  
 
-# Mesajları yavaşça yazdır
+
 welcome_message = "Welcome to the FaxterGPT chat!"
 leave_message = "Say bot `leave` to leave"
 
-# Mesajları ortala
+
 centered_welcome = welcome_message.center(screen_width)
 centered_leave = leave_message.center(screen_width)
 
-# Yavaşça yazdır
+
 for char in centered_welcome:
     print(char, end='', flush=True)
-    time.sleep(0.05)  # Her karakter için 0.05 saniye bekle
-print()  # Yeni satıra geç
+    time.sleep(0.05)  
+print()  
 
 for char in centered_leave:
     print(char, end='', flush=True)
-    time.sleep(0.05)  # Her karakter için 0.05 saniye bekle
-print("\n")  # Yeni satıra geç
+    time.sleep(0.05)  
+print("\n") 
 
 
-# Load the model and tokenizer
-model_name = "microsoft/DialoGPT-large"  # Using a larger model
+
+model_name = "microsoft/DialoGPT-large"  
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name)
 
-# Clear the screen
+
 subprocess.call("cls", shell=True)
 
-# ANSI color codes for sunrise effect
+
 sunrise_colors = [
-    "\033[38;5;214m",  # Orange
-    "\033[38;5;226m",  # Yellow
-    "\033[38;5;197m",  # Pink
-    "\033[0m"  # Reset
+    "\033[38;5;214m", 
+    "\033[38;5;226m",  
+    "\033[38;5;197m",  
+    "\033[0m"  
 ]
 
 # Color codes for user input and bot response
